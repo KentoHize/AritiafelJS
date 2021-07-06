@@ -5,19 +5,18 @@
     <title>Test</title>
     <script type="module">        
         import { Doc, Div } from "./js/Ansrabrar.js";
-        let doc = new Doc();        
+        let doc = new Doc();
 
         let style1 = doc.createStyle(`testS`);
         style1.addRule(`background-color`, `red`);
         style1.addRule(`width`, `500px`);
         style1.addRule(`height`, `300px`);
         style1.addRule(`border-style`, `solid`);
-        style1.addRule(`border-width`, `20px`);
+        style1.addRule(`border-width`, `2px`);
 
-        let d = new Div();
-        d.Styles.push(style1);        
-        d.ID = `ab`;
-        doc.Content = d;        
+        let d = new Div(`ab`);
+        d.Styles.push(style1);
+        doc.Elements.push(d);
 
         document.addEventListener("DOMContentLoaded", function (event) {
             doc.printTo(document);            

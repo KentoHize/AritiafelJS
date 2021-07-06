@@ -2,11 +2,11 @@
 
 class Doc {
 
-    Content;
+    Elements;
     Styles;
 
-    constructor(content = null, styles = []) {
-        this.Content = content;
+    constructor(elements = [], styles = []) {
+        this.Elements = elements;
         this.Styles = styles;
     }
 
@@ -31,11 +31,11 @@ class Doc {
             for (let i = 0; i < this.Styles.length; i++)
                 document.styleSheets[0].insertRule(this.Styles[i].printAsClassSelector(), 0);
         }
-        if (this.Content != null) {
+        if (this.Elements.length != 0) {
             if (root == null)
-                document.getElementsByTagName(`body`)[0].appendChild(this.Content.getObject(document));
-            else
-                root.appendChild(this.Content.getObject(doucment));
+                root = document.getElementsByTagName(`body`)[0];
+            for (let i = 0; i < this.Elements.length; i++)
+                root.appendChild(this.Elements[i].getObject(document));
         }   
     }
 }
