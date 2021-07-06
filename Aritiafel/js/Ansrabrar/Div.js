@@ -2,8 +2,8 @@
 
 class Div extends Element {
 
-    constructor(id = null, content = null, styles = [], width = null, height = null) {
-        super(`div`, id, content, styles, height);
+    constructor(id = null, elements = [], styles = [], width = null, height = null) {
+        super(`div`, id, elements, styles, width, height);
     }
 }
 

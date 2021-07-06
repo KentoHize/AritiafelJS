@@ -7,12 +7,12 @@ class Element {
     Width;
     Height;
     Styles;
-    Content;
+    Elements;
 
-    constructor(name, id = null, content = null, styles = [], width = null, height = null) {
+    constructor(name, id, elements, styles, width, height) {
         this.#Name = name;
         this.ID = id;
-        this.Content = content;
+        this.Element = elements;
         this.Styles = styles;
         this.Width = width;
         this.Height = height;
