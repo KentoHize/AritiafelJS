@@ -1,5 +1,9 @@
-﻿class System {
+﻿import { Aritiafel } from "./Aritiafel.js"
+import { Div } from "./Ansrabrar/Div.js"
 
-}
+class Ansrabrar { }
 
-export { System }
+Aritiafel.Ansrabrar = Ansrabrar;
+Aritiafel.Ansrabrar.Div = Div;
+
+export { Aritiafel, Div };
