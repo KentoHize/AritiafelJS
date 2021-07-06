@@ -23,11 +23,10 @@ class Div {
             styleStr += ` height:${this.Height};`;
         if (styleStr != ``)
             div.style = styleStr;
-        if (this.Styles != null && this.Styles.length != 0) {            
+        if (this.Styles != null && this.Styles.length != 0)
             div.className = Style.printClassName(this.Styles);
-        }   
         if (this.Content != null)
-            div.appendChild(this.Content.getObject(document));
+            div.appendChild(this.Content.getObject(document, doc));
         return div;
     }
 }

@@ -22,13 +22,7 @@ class Style {
             }
         }
         console.exception(`${attributeName} not found.`);
-    }
-
-    static initiailzie(document) {
-
-    }
-
-  
+    }  
 
     static printClassName(styles) {
         let classStr = ``;
@@ -42,7 +36,7 @@ class Style {
     printAsClassSelector() {
         let cssStr = ``;
         cssStr += `.${this.Name}{`;
-        for (let i = 0; i < Rules.length; i++)
+        for (let i = 0; i < this.Rules.length; i++)
             cssStr += `${this.Rules[i].print()}`;
         cssStr += `}`;
         return cssStr;
