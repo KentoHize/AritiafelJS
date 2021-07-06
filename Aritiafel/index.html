@@ -46,9 +46,16 @@
                     id:'bc',
                     type:`div`,
                     className:`testA`,
-                    content:[]
+                    content: [ `abc` ]
                 }]
-            }];
+            },
+                {
+                    id:`ac`,
+                    type: `div`,
+                    className: `testS`,
+                    content: [ `abcdef`]
+                }
+            ];
 
         doc.loadJSON(htmlStyles, htmlDOMs);
         document.addEventListener("DOMContentLoaded", function (event) {

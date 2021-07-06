@@ -1,5 +1,6 @@
 ﻿import { Style } from "./Style.js"
 import { Element } from "./Element.js"
+import { Text } from "./Text.js"
 
 class Doc {
 
@@ -25,7 +26,14 @@ class Doc {
 
         const loadElements = function(elements, styles) {
             let result = []
+
+            if (elements.length == 1 && typeof elements[0] == `string`) {                
+                result.push(new Text(elements[0]));
+                return result;
+            }
+                
             for (let i = 0; i < elements.length; i++) {
+
                 let newElement = new Element(elements[i].type, null, [], [], null, null);
 
                 if (elements[i].className != null && elements[i].className != ``) {

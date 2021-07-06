@@ -9,7 +9,7 @@ class Element {
     Styles;
     Elements;
 
-    constructor(type, id, elements, styles, width, height) {
+    constructor(type, id = null, elements = [], styles = [], width = null, height = null) {
         this.#Type = type;
         this.ID = id;
         this.Elements = elements;
@@ -18,7 +18,8 @@ class Element {
         this.Height = height;
     }
 
-    getObject(document) {
+    getObject(document) {      
+            
         const element = document.createElement(this.#Type);
         let styleStr = ``;
         if (this.ID != null && this.ID != ``)
