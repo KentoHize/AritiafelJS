@@ -12,4 +12,4 @@ Aritiafel.Ansrabrar.Style = Style;
 Aritiafel.Ansrabrar.Rule = Rule;
 Aritiafel.Ansrabrar.Doc = Doc;
 
-export { Aritiafel, Doc, Div, Style, Rule };
+export { Aritiafel, Ansrabrar, Doc, Div, Style, Rule };

@@ -20,9 +20,17 @@ class Style {
                 this.Rules.splice(i, 1);
                 return;
             }
-        }
+        }        
         console.exception(`${attributeName} not found.`);
+        //To Do
     }  
+
+    valueOfRule(attributeName) {
+        const result = this.Rules.find(m => m.Attribute == attributeName);
+        if (result != null)
+            return result.Value;
+        return null;
+    }
 
     static printClassName(styles) {
         let classStr = ``;
@@ -31,6 +39,16 @@ class Style {
         for (let i = 0; i < styles.length; i++)
             classStr += styles[i].Name + ` `;
         return classStr.substr(0, classStr.length - 1);
+    }
+
+    static getRuleByNameFromStyles(styles, attributeName) {
+        let result = null;
+        for (let i = styles.length - 1; i >= 0; i--) {
+            result = styles[i].Rules.find(m => m.Attribute == attributeName);
+            if (result != null)
+                return result;
+        }
+        return result;
     }
 
     printAsClassSelector() {
