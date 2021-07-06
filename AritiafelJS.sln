@@ -25,13 +25,22 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Aritiafel", "Aritiafel\", "
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpareFiles", "SpareFiles\SpareFiles.csproj", "{939D0D73-E1D3-4764-9C42-79BB9E8DEEDB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{64A948E6-FAF6-4E83-8271-3FA224EEAF0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{64A948E6-FAF6-4E83-8271-3FA224EEAF0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64A948E6-FAF6-4E83-8271-3FA224EEAF0E}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{64A948E6-FAF6-4E83-8271-3FA224EEAF0E}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{939D0D73-E1D3-4764-9C42-79BB9E8DEEDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{939D0D73-E1D3-4764-9C42-79BB9E8DEEDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{939D0D73-E1D3-4764-9C42-79BB9E8DEEDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{939D0D73-E1D3-4764-9C42-79BB9E8DEEDB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
