@@ -1,30 +1,33 @@
-﻿class Div {
+﻿import { Style } from "./Style.js"
+
+class Div {
 
     Width;
     Height;
     Styles;
     Content;
 
-    constructor(content = null, styles = null, width = null, height = null) {
+    constructor(content = null, styles = [], width = null, height = null) {
         this.Styles = styles;
         this.Content = content;
         this.Width = width;
         this.Height = height;
     }
 
-    print(document) {
+    getObject(document) {
         const div = document.createElement(`div`);
         let styleStr = ``;
         if (this.Width != null)
-            styleStr += ` width: ${this.Width};`;
+            styleStr += ` width:${this.Width};`;
         if (this.Height != null)
-            styleStr += ` height: ${this.Height};`;
+            styleStr += ` height:${this.Height};`;
         if (styleStr != ``)
             div.style = styleStr;
-        if (this.Style != null)
+        if (this.Styles != null && this.Styles.length != 0) {            
             div.className = Style.printClassName(this.Styles);
+        }   
         if (this.Content != null)
-            div.innerHtml = this.Content.Print(document);
+            div.appendChild(this.Content.getObject(document));
         return div;
     }
 }

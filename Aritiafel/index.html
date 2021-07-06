@@ -4,13 +4,21 @@
     <meta charset="utf-8" />
     <title>Test</title>
     <script type="module">        
-        import { Aritiafel, Div } from "./js/Ansrabrar.js";
-        var a = new Aritiafel.Ansrabrar.Div();
-        var b = new Div();
-        //console.log(a);
+        import { Aritiafel, Div, Style, Rule } from "./js/Ansrabrar.js";
+
+        //Style.initializeStyleSheet(document);
+        let d = new Div();
+        let style1 = new Style(`testS`);
+        style1.addRule(`background-color`, `red`);
+        style1.addRule(`width`, `500px`);
+        style1.addRule(`height`, `300px`);
+        d.Styles.push(style1);
+        var sb = document.getElementById(`Sandbox`);
+
+        sb.appendChild(d.getObject(document));
     </script>
 </head>
 <body>
-
+    <div id="Sandbox"></div>
 </body>
 </html>
