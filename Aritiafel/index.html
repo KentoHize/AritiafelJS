@@ -3,26 +3,59 @@
 <head>
     <meta charset="utf-8" />
     <title>Test</title>
-    <script type="module">        
+    <script type="module">
         import { Doc, Div } from "./js/Ansrabrar.js";
         let doc = new Doc();
 
-        let style1 = doc.createStyle(`testS`);
-        style1.addRule(`background-color`, `red`);
-        style1.addRule(`width`, `500px`);
-        style1.addRule(`height`, `300px`);
-        style1.addRule(`border-style`, `solid`);
-        style1.addRule(`border-width`, `2px`);
+        //let style1 = doc.createStyle(`testS`);
+        //style1.addRule(`background-color`, `red`);
+        //style1.addRule(`width`, `500px`);
+        //style1.addRule(`height`, `300px`);
+        //style1.addRule(`border-style`, `solid`);
+        //style1.addRule(`border-width`, `2px`);
 
-        let d = new Div(`ab`);
-        d.Styles.push(style1);
-        doc.Elements.push(d);
+        //let d = new Div(`ab`);
+        //d.Styles.push(style1);
+        //doc.Elements.push(d);
 
+        let htmlStyles =
+            [{
+                name:`testS`,
+                rules:[
+                    { attr:`background-color`, val:`red` },
+                    { attr:`width`, val:`500px` },
+                    { attr:`height`, val:`300px` },
+                ]
+            },
+                {
+                    name:`testA`,
+                    rules:[
+                        { attr:`background-color`, val:`yellow` },
+                        { attr:`width`, val:`200px` },
+                        { attr:`height`, val:`200px` },
+                    ]
+                },
+            ];
+
+        let htmlDOMs =
+            [{
+                id:`ab`,
+                type:`div`,
+                className:`testS`,
+                content:[{
+                    id:'bc',
+                    type:`div`,
+                    className:`testA`,
+                    content:[]
+                }]
+            }];
+
+        doc.loadJSON(htmlStyles, htmlDOMs);
         document.addEventListener("DOMContentLoaded", function (event) {
-            doc.printTo(document);            
+            doc.printTo(document);
         });
     </script>
 </head>
-<body>    
+<body>
 </body>
 </html>

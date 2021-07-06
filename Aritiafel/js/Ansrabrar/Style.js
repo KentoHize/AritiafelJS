@@ -59,8 +59,6 @@ class Style {
         cssStr += `}`;
         return cssStr;
     }
-
-    
 }
 
 export { Style };

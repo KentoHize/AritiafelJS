@@ -3,14 +3,14 @@
 class Element {
 
     ID;
-    #Name;
+    #Type;
     Width;
     Height;
     Styles;
     Elements;
 
-    constructor(name, id, elements, styles, width, height) {
-        this.#Name = name;
+    constructor(type, id, elements, styles, width, height) {
+        this.#Type = type;
         this.ID = id;
         this.Elements = elements;
         this.Styles = styles;
@@ -19,7 +19,7 @@ class Element {
     }
 
     getObject(document) {
-        const element = document.createElement(this.#Name);
+        const element = document.createElement(this.#Type);
         let styleStr = ``;
         if (this.ID != null && this.ID != ``)
             element.id = this.ID;
