@@ -5,16 +5,14 @@ import { Rule } from "./Ansrabrar/Rule.js"
 import { Doc } from "./Ansrabrar/Doc.js"
 import { Text } from "./Ansrabrar/Text.js"
 
-class Ansrabrar { }
-
-Aritiafel.Ansrabrar = Ansrabrar;
+Aritiafel.Ansrabrar = {};
 Aritiafel.Ansrabrar.Div = Div;
 Aritiafel.Ansrabrar.Style = Style;
 Aritiafel.Ansrabrar.Rule = Rule;
 Aritiafel.Ansrabrar.Doc = Doc;
 Aritiafel.Ansrabrar.Text = Text;
 
-export { Aritiafel, Ansrabrar, Doc, Div, Style, Rule, Text };
+export { Aritiafel, Doc, Div, Style, Rule, Text };
 
 //Usage Example
 /*
@@ -39,7 +37,7 @@ export { Aritiafel, Ansrabrar, Doc, Div, Style, Rule, Text };
 */
 /*
  
-        let htmlStyles =
+       let htmlStyles =
             [{
                 name:`testS`,
                 rules:[
@@ -67,9 +65,16 @@ export { Aritiafel, Ansrabrar, Doc, Div, Style, Rule, Text };
                     id:'bc',
                     type:`div`,
                     className:`testA`,
-                    content:[]
+                    content: [ `abc` ]
                 }]
-            }];
+            },
+                {
+                    id:`ac`,
+                    type: `div`,
+                    className: `testS`,
+                    content: [ `abcdef`]
+                }
+            ];
 
         doc.loadJSON(htmlStyles, htmlDOMs);
         document.addEventListener("DOMContentLoaded", function (event) {

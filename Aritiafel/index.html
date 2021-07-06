@@ -5,6 +5,7 @@
     <title>Test</title>
     <script type="module">
         import { Doc, Div } from "./js/Ansrabrar.js";
+        import { Riana } from "./js/Characters/Heroes/Riana.js"
         let doc = new Doc();
 
         //let style1 = doc.createStyle(`testS`);
@@ -17,6 +18,8 @@
         //let d = new Div(`ab`);
         //d.Styles.push(style1);
         //doc.Elements.push(d);
+
+        
 
         let htmlStyles =
             [{
@@ -58,8 +61,12 @@
             ];
 
         doc.loadJSON(htmlStyles, htmlDOMs);
+        
+        
         document.addEventListener("DOMContentLoaded", function (event) {
             doc.printTo(document);
+
+            Riana.CreateText('what!', Riana.CreateDiv(doc, `test`, 200, 200, true, true, doc));
         });
     </script>
 </head>
