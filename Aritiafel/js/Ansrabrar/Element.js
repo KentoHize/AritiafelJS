@@ -12,7 +12,7 @@ class Element {
     constructor(name, id, elements, styles, width, height) {
         this.#Name = name;
         this.ID = id;
-        this.Element = elements;
+        this.Elements = elements;
         this.Styles = styles;
         this.Width = width;
         this.Height = height;
@@ -47,9 +47,10 @@ class Element {
         if (this.Height != null)
             styleStr += ` height:${this.Height};`;
         if (styleStr != ``)
-            element.style = styleStr;
-        if (this.Content != null)
-            element.appendChild(this.Content.getObject(document, doc));
+            element.style = styleStr;        
+        if (this.Elements.length != 0) 
+            for (let i = 0; i < this.Elements.length; i++)
+                element.appendChild(this.Elements[i].getObject(document));            
         return element;
     }
 
