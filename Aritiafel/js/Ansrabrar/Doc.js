@@ -20,7 +20,7 @@ class Doc {
         this.Styles = this.Styles.filter(item => item.Name !== name);
     }
 
-    printTo(document) {
+    printTo(document, root = null) {
         if (this.Styles != null && this.Styles.length != 0) {
             let styleSheet = document.getElementsByTagName(`style`);
             if (styleSheet.length == 0) {
@@ -31,8 +31,12 @@ class Doc {
             for (let i = 0; i < this.Styles.length; i++)
                 document.styleSheets[0].insertRule(this.Styles[i].printAsClassSelector(), 0);
         }
-        if (this.Content != null)
-            document.getElementsByTagName(`body`)[0].appendChild(this.Content.getObject(document));
+        if (this.Content != null) {
+            if (root == null)
+                document.getElementsByTagName(`body`)[0].appendChild(this.Content.getObject(document));
+            else
+                root.appendChild(this.Content.getObject(doucment));
+        }   
     }
 }
 
