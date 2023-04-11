@@ -3,18 +3,33 @@ import { ArTranslator } from "../Devices/ArTranslator.js"
 
 export class RabbitCouriers {
 
-    static Translators = {};
-    static CultureInfo = ``;
+    static #resourceFileFolder
+    static Translators = [];
+    static DefaultCultureInfo = ``;
 
     static RegisterResourcesFilesFolderAndCultureInfo(resourceFilesFolder, cultureInfo)
     {
-        this.Translators = {};
-        this.CultureInfo = cultureInfo;
-        this.Translators = new ArTranslator(`${resourceFilesFolder}/${this.CultureInfo}.json`);
+        this.Translators = [];
+        this.DefaultCultureInfo = cultureInfo;
+        this.#resourceFileFolder = resourceFilesFolder;
+        this.Translators[this.DefaultCultureInfo] = new ArTranslator(`${resourceFilesFolder}/${this.DefaultCultureInfo}.json`);
     }
 
-    static GetMessage(key) {
-        return Translators.GetString(key);
+    static RegisterNewCultureInfo(cultureInfo) {
+        this.Translators[cultureInfo] = new ArTranslator(`${resourceFilesFolder}/${cultureInfo}.json`);
+    }
+
+    //Check
+    static UnregisterAll() {
+        delete this.Translators;
+        this.Translators = [];
+    }
+
+    static GetMessage(key, cultureInfo = null) {
+        if (cultureInfo)
+            return Translators[cultureInfo].GetString(key);
+        else
+            return Translators[this.CultureInfo].GetString(key);
     }   
 }
 

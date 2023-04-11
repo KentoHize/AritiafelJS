@@ -8,7 +8,7 @@ export class ArTranslator {
         });
     }
 
-    GetString(key) {       
+    GetString(key) {
         return this.#resourceFile.find(m => m.Key == key).Value;
     }
 }
