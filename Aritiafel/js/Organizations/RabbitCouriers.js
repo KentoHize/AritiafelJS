@@ -7,29 +7,30 @@ export class RabbitCouriers {
     static Translators = [];
     static DefaultCultureInfo = ``;
 
-    static RegisterResourcesFilesFolderAndCultureInfo(resourceFilesFolder, cultureInfo)
-    {
-        this.Translators = [];
-        this.DefaultCultureInfo = cultureInfo;
-        this.#resourceFileFolder = resourceFilesFolder;
-        this.Translators[this.DefaultCultureInfo] = new ArTranslator(`${resourceFilesFolder}/${this.DefaultCultureInfo}.json`);
+    static async RegisterResourcesFilesFolderAndCultureInfo(resourceFilesFolder, cultureInfo) {
+        RabbitCouriers.Translators = [];
+        RabbitCouriers.DefaultCultureInfo = cultureInfo;
+        RabbitCouriers.#resourceFileFolder = resourceFilesFolder;        
+        RabbitCouriers.Translators[RabbitCouriers.DefaultCultureInfo] = new ArTranslator();
+        await RabbitCouriers.Translators[RabbitCouriers.DefaultCultureInfo].LoadResourceFile(`../../${RabbitCouriers.#resourceFileFolder}/${RabbitCouriers.DefaultCultureInfo}.json`);
     }
 
-    static RegisterNewCultureInfo(cultureInfo) {
-        this.Translators[cultureInfo] = new ArTranslator(`${resourceFilesFolder}/${cultureInfo}.json`);
+    static async RegisterNewCultureInfo(cultureInfo) {
+        RabbitCouriers.Translators[cultureInfo] = new ArTranslator();
+        await RabbitCouriers.Translators[cultureInfo].LoadResourceFile(`../../${RabbitCouriers.#resourceFileFolder}/${cultureInfo}.json`)
     }
 
     //Check
     static UnregisterAll() {
-        delete this.Translators;
-        this.Translators = [];
+        delete RabbitCouriers.Translators;
+        RabbitCouriers.Translators = [];
     }
 
-    static GetMessage(key, cultureInfo = null) {
+    static GetMessage(key, cultureInfo = null) {        
         if (cultureInfo)
-            return Translators[cultureInfo].GetString(key);
+            return RabbitCouriers.Translators[cultureInfo].GetString(key);
         else
-            return Translators[this.CultureInfo].GetString(key);
+            return RabbitCouriers.Translators[RabbitCouriers.DefaultCultureInfo].GetString(key);
     }   
 }
 

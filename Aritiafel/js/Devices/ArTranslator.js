@@ -1,15 +1,20 @@
 ﻿import { Aritiafel } from "../Aritiafel.js"
 
 export class ArTranslator {
-    #resourceFile;    
-    constructor(resourceFile) {
-        import(resourceFile, { assert: { type: `json` } }).then(m => {
-            this.#resourceFile = m.default;
-        });
+    #resourceFileObj;
+    State = 0;
+    
+    constructor() {
+        this.State = 1;        
+    }   
+
+    async LoadResourceFile(resourceFile) {
+        this.#resourceFileObj = (await import(resourceFile, { assert: { type: `json` } })).default;
+        this.State = 2;
     }
 
     GetString(key) {
-        return this.#resourceFile.find(m => m.Key == key).Value;
+        return this.#resourceFileObj.find(m => m.Key == key).Value;
     }
 }
 
