@@ -6,70 +6,59 @@
     <script type="module">
         import { Aritiafel } from "./js/Aritiafel.js";
         import { Doc, Div } from "./js/Ansrabrar.js";
-        import { Riana } from "./js/Characters/Heroes/Riana.js"        
+        import { Riana } from "./js/Characters/Heroes/Riana.js"
         import { RabbitCouriers } from "./js/Organizations/RabbitCouriers.js";
         let rc = Aritiafel.Organizations.RabbitCouriers;
         await rc.RegisterResourcesFilesFolderAndCultureInfo(`Resources`, `zh-TW`);
-                       
-            let doc = new Doc();
-            let htmlStyles =
-                [{
-                    name: `testS`,
-                    rules: [
-                        { attr: `background-color`, val: `red` },
-                        { attr: `width`, val: `500px` },
-                        { attr: `height`, val: `300px` },
-                    ]
-                },
-                {
-                    name: `testA`,
-                    rules: [
-                        { attr: `background-color`, val: `yellow` },
-                        { attr: `width`, val: `200px` },
-                        { attr: `height`, val: `200px` },
-                    ]
-                }
-                ];
+        await rc.RegisterNewCultureInfo(`en-US`);
+        
+        let doc = new Doc();
+        let htmlStyles =
+            [{
+                name: `testS`,
+                rules: [
+                    { attr: `background-color`, val: `red` },
+                    { attr: `width`, val: `500px` },
+                    { attr: `height`, val: `300px` },
+                ]
+            },
+            {
+                name: `testA`,
+                rules: [
+                    { attr: `background-color`, val: `yellow` },
+                    { attr: `width`, val: `200px` },
+                    { attr: `height`, val: `200px` },
+                ]
+            }
+            ];
 
-            let htmlDOMs =
-                [{
-                    id: `ab`,
+        let htmlDOMs =
+            [{
+                id: `ab`,
+                type: `div`,
+                className: `testS`,
+                content: [{
+                    id: 'bc',
                     type: `div`,
-                    className: `testS`,
-                    content: [{
-                        id: 'bc',
-                        type: `div`,
-                        className: `testA`,
-                        content: [`${rc.GetMessage(`RES_APPLE`)}`]
-                    }]
-                },
-                {
-                    id: `ac`,
-                    type: `div`,
-                    className: `testS`,
-                    content: [`${rc.GetMessage(`RES_HAT`)}`]
-                }
-                ];
+                    className: `testA`,
+                    content: [`${rc.GetMessage(`RES_APPLE`)}`]
+                }]
+            },
+            {
+                id: `ac`,
+                type: `div`,
+                className: `testS`,
+                content: [`${rc.GetMessage(`RES_HAT`, `en-US`)}`]
+            }
+            ];
 
-            doc.loadJSON(htmlStyles, htmlDOMs);            
-            doc.printTo(document);
-        
-        
-        //
-        //.then(m => {
-        //    alert(rc.Translators.length);
-        //    //Aritiafel.Organizations.RabbitCouriers.Translators[Aritiafel.Organizations.RabbitCouriers.Translators.DefaultCultureInfo];
-        //    //alert('in');
-        //    //alert(rc.GetMessage(`RES_APPLE`));
-        //});  
-
-        
-
-        
+        doc.loadJSON(htmlStyles, htmlDOMs);
+        doc.printTo(document);
+        await rc.UnregisterAll();
     </script>
 </head>
 <body>
 
-    
+
 </body>
 </html>

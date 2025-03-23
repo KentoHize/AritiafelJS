@@ -9,7 +9,7 @@ export class ArTranslator {
     }   
 
     async LoadResourceFile(resourceFile) {
-        this.#resourceFileObj = (await import(resourceFile, { assert: { type: `json` } })).default;
+        this.#resourceFileObj = (await fetch(resourceFile).then(m => m.json()));
         this.State = 2;
     }
 
